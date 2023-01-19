@@ -1,6 +1,3 @@
-from logging import exception
-
-
 my_list = [45, 87, 39, 32, 93, 86, 12, 44, 75, 50]
 sorted_list = sorted(my_list)
 
@@ -41,9 +38,9 @@ def selection_sort(lst:list):
 
 def binary_search(lst, target): #Lst needs to be sorted
     l = 0
-    r = len(lst)
+    r = len(lst) - 1
     while l <= r:
-        mid = l + r // 2
+        mid = (l + r) // 2
         print(mid)
         if lst[mid] == target:
             return mid
@@ -51,11 +48,12 @@ def binary_search(lst, target): #Lst needs to be sorted
         elif lst[mid] < target:
             l = mid + 1
     
-        elif lst[mid] > target: 
+        else: 
             r = mid - 1 
         #if mid not mid-1 and target not in list, mid will always = r (creates infinite loop) or mid will be out of range
-    if l > r: #return -1 when num not in list, this occurs once r < l, whole list has been searched
-        return -1
+        #return -1 when num not in list, this occurs once r < l, whole list has been searched
+    return -1
+        
 
 
 
